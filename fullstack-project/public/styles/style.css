@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+  padding: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+a {
+  color: #00b7ff; }
+
+/*# sourceMappingURL=style.css.map */
+
+.card{
+  margin: auto;
+}
+.card-body{
+  text-align: center;
+}
+.card-body input {
+  width: 300px;
+} 
+.private{
+  margin: 0 auto;
+  text-align: center;
+}
+.private img{
+  width: 500px;
+  height: 400px;
+}
+.main{
+  text-align: center;
+}
+.main img{
+  width: 500px;
+  height: 400px;
+}

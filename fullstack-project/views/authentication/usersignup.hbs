@@ -1,0 +1,25 @@
+<div class="card" style="width: 22rem;" style="height: 500px;">
+    <form method="POST" action="/signup">
+        <div class="card-body">
+            <h5 class="card-title"><strong> Create artisian account</strong></h5>
+        <br>
+            <label for="username">Name</label>
+            <input type="text" name="name" placeholder="Name">
+            
+        <br>
+        <br>
+            <label for="Email">Email</label>
+            <input type="email" name="email" required placeholder="Email">
+        <br>
+        <br>
+            <label for="Password">Password</label>
+            <input type="password" name="password" required placeholder="Password">
+        <br>
+        <br>
+            <button class="btn btn-primary"> Create account </button>
+            {{!-- <button type="button" class="btn btn-outline-info btn-lg btn-block">Create account</button> --}}
+        <br>
+            <span>Already have an account? <a href="/signin">Sign in</a></span>
+        </div>
+    </form>
+</div>
