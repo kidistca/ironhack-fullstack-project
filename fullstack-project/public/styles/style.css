@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  padding: 50px;
+  /* padding: 50px; */
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 a {
-  color: #00b7ff; }
+  color: #00b7ff; 
+}
 
 /*# sourceMappingURL=style.css.map */
 
@@ -17,18 +18,47 @@ a {
 .card-body input {
   width: 300px;
 } 
-.private{
+/* .private{
   margin: 0 auto;
   text-align: center;
 }
 .private img{
   width: 500px;
   height: 400px;
-}
-.main{
+} */
+/* .main{
   text-align: center;
 }
 .main img{
   width: 500px;
   height: 400px;
+} */
+
+/* .navbar{
+  padding: 20px;
+} */
+.collapse{
+  margin-right: 80px;
+  /* margin-left: 300px; */
+  /* padding-left: 20px;
+  margin-right: 70px; */
+}
+.navbar-brand{
+  margin-left: 30px;
+  margin-right: 200px;
+}
+ .form-inline input{
+   width: 100px;
+ }
+ .form-control{
+  width: 700px;
+ }
+ .rounded{
+  /* padding:30px; */
+  margin: 100px 30px;
+  text-align: center;
+ }
+ .img-fluid {
+  max-width: 100%;
+  height: auto;
 }
