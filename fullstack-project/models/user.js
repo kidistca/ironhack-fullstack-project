@@ -18,8 +18,8 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-const userSignupStatic = require('./user-signup-static');
-const userSigninStatic = require('./user-signin-static');
+const userSignupStatic = require('./signup-static');
+const userSigninStatic = require('./signin-static');
 const findByEmailStatic = require('./findByEmail');
 
 userSchema.statics.signIn = userSigninStatic;
