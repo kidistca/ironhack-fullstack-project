@@ -5,6 +5,8 @@ const router = Router();
 
 const User = require('./../models/user');
 const Seller = require('./../models/seller');
+const Image = require('./../models/image');
+const upload = require('./../config/cloudinary');
 const bcrypt = require('bcrypt');
 
 //-------------- User authentication -----------------------
@@ -88,6 +90,41 @@ router.post('/sellersignin', (req, res, next) => {
       console.log(error);
     });
 });
+
+//---------------------Upload Images --------------------------
+//---------------------Upload Images --------------------------
+//---------------------Upload Images --------------------------
+//---------------------Upload Images --------------------------
+
+router.get('/sellerPage', (req, res, next) => {
+  // const id = req.params.id;
+  // Image.findById(id)
+  Image.find({})
+    //.limit(20)
+    //.sort({ createdAt: -1 })
+    //.exec()
+    .then(images => {
+      console.log(images);
+      res.render('sellerPage', { images });
+    })
+    .catch(error => next(error));
+});
+
+router.post('/sellerPage', upload.single('file'), (req, res, next) => {
+   // const id = req.params.id;
+  Image.create({
+    description: req.body.description,
+    originalName: req.file.originalname,
+    // extension: req.file.format,
+    url: req.file.url
+  })
+    .then(file => {
+      console.log(file);
+      res.redirect('/sellerPage');
+    })
+    .catch(error => next(error));
+});
+
 
 
 module.exports = router;
