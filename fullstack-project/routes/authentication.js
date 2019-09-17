@@ -80,6 +80,7 @@ router.get('/sellersignin', (req, res, next) => {
 });
 
 router.post('/sellersignin', (req, res, next) => {
+  const sellerId = req.params.sellerId;
   const email = req.body.email;
   const passwordHash = req.body.password;
   Seller.signIn(email, passwordHash)
@@ -96,23 +97,36 @@ router.post('/sellersignin', (req, res, next) => {
 //---------------------Upload Images --------------------------
 //---------------------Upload Images --------------------------
 
+
+let auxiliaryUser;
+
+
 router.get('/sellerPage', (req, res, next) => {
-  // const id = req.params.id;
-  // Image.findById(id)
-  Image.find({})
-    //.limit(20)
-    //.sort({ createdAt: -1 })
-    //.exec()
+  const id = req.session.user._id;
+  // const sellerId = req.params.sellerId;
+  const imageOwnerId = auxiliaryUser.owner;
+  // const imageid = req.file._id;
+   console.log('This  is seller id', id + " Image id " + auxiliaryUser.owner);
+  //  Seller.findById(id)
+  //  then(images => )
+  
+   Image.find({owner: imageOwnerId})
+  //  Image.find({})
+    // .limit(20)
+    // .sort({ createdAt: -1 })
+    // .exec()
     .then(images => {
-      console.log(images);
+      // console.log(images);
       res.render('sellerPage', { images });
     })
     .catch(error => next(error));
 });
 
 router.post('/sellerPage', upload.single('file'), (req, res, next) => {
-   // const id = req.params.id;
+  //  const sellerId = Seller.params.id;
+  //  console.log('I think seller id', sellerId);
   Image.create({
+    owner: req.session.user._id,
     description: req.body.description,
     originalName: req.file.originalname,
     // extension: req.file.format,
@@ -120,10 +134,23 @@ router.post('/sellerPage', upload.single('file'), (req, res, next) => {
   })
     .then(file => {
       console.log(file);
+      auxiliaryUser = file;
       res.redirect('/sellerPage');
     })
     .catch(error => next(error));
 });
+
+
+
+
+
+// router.post("/signout", (req, res, next) => {
+//   req.session.destroy((err) => {
+//     // can't access session here
+//     // console.log("No session" + req.session.user._id);
+//     res.render("authentication/sellersignin");
+//   });
+// });
 
 
 

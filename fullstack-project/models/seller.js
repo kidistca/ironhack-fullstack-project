@@ -15,6 +15,9 @@ const sellerSchema = new mongoose.Schema({
   passwordHash: {
     type: String,
     required: true
+  },
+  sellerId:{
+    type: mongoose.Schema.Types.ObjectId
   }
 });
 

@@ -1,6 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
+// const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const schema = new mongoose.Schema({
   description: {
@@ -11,15 +12,13 @@ const schema = new mongoose.Schema({
     type: String,
     trim: true
   },
-//   extension: {
-//     type: String,
-//     trim: true,
-//     lowercase: true
-//   },
   url: {
     type: String,
     trim: true
   },
+  owner:{
+      type: mongoose.Schema.Types.ObjectId
+    },
   path: {
     type: String,
     trim: true
