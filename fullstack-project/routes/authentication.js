@@ -79,9 +79,11 @@ router.get('/sellersignin', (req, res, next) => {
   res.render('authentication/sellersignin');
 });
 
+let auxiSellerEmail;
 router.post('/sellersignin', (req, res, next) => {
   const sellerId = req.params.sellerId;
   const email = req.body.email;
+  auxiSellerEmail = email;
   const passwordHash = req.body.password;
   Seller.signIn(email, passwordHash)
     .then(() => {
@@ -102,19 +104,14 @@ let auxiliaryUser;
 
 
 router.get('/sellerPage', (req, res, next) => {
-  const id = req.session.user._id;
-  // const sellerId = req.params.sellerId;
-  const imageOwnerId = auxiliaryUser.owner;
-  // const imageid = req.file._id;
-   console.log('This  is seller id', id + " Image id " + auxiliaryUser.owner);
-  //  Seller.findById(id)
-  //  then(images => )
+  // const id = req.session.user._id;
+  // const imageOwnerId = auxiliaryUser.owner;
+   console.log('This  is seller email', auxiSellerEmail + " Image id " + auxiliaryUser.owner);
   
-   Image.find({owner: imageOwnerId})
-  //  Image.find({})
-    // .limit(20)
-    // .sort({ createdAt: -1 })
-    // .exec()
+    Image.find({sellerEmail: auxiSellerEmail})
+      .limit(20)
+      .sort({ createdAt: -1 })
+      .exec()
     .then(images => {
       // console.log(images);
       res.render('sellerPage', { images });
@@ -123,13 +120,11 @@ router.get('/sellerPage', (req, res, next) => {
 });
 
 router.post('/sellerPage', upload.single('file'), (req, res, next) => {
-  //  const sellerId = Seller.params.id;
-  //  console.log('I think seller id', sellerId);
   Image.create({
-    owner: req.session.user._id,
+    sellerEmail: auxiSellerEmail,
     description: req.body.description,
+    price: req.body.price,
     originalName: req.file.originalname,
-    // extension: req.file.format,
     url: req.file.url
   })
     .then(file => {
@@ -139,8 +134,6 @@ router.post('/sellerPage', upload.single('file'), (req, res, next) => {
     })
     .catch(error => next(error));
 });
-
-
 
 
 

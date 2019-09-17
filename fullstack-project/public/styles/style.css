@@ -43,3 +43,29 @@ a {
   margin: 100px 30px;
   text-align: center;
  }
+
+ .seller-products {    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap; 
+  margin-top:3em;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 50px;
+}
+
+/* .seller-products img {
+  display: block;
+  margin-right: 50px;
+  height: 300px;
+  width: auto;
+}
+*/
+
+.card-body{
+  text-align: center;
+} 
+.top-card-space{
+  margin-top: 5em;
+}

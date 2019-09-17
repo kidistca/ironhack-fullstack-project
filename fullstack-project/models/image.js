@@ -8,6 +8,10 @@ const schema = new mongoose.Schema({
     type: String,
     trim: true
   },
+  price: {
+    type: Number,
+    required: true
+  },
   originalName: {
     type: String,
     trim: true
@@ -15,6 +19,9 @@ const schema = new mongoose.Schema({
   url: {
     type: String,
     trim: true
+  },
+  sellerEmail: {
+    type: String
   },
   owner:{
       type: mongoose.Schema.Types.ObjectId
