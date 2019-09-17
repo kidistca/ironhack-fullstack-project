@@ -3,7 +3,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const User = require('./../models/user');
+const Buyer = require('../models/buyer');
 const Seller = require('./../models/seller');
 const Image = require('./../models/image');
 
@@ -21,7 +21,7 @@ router.post('/signup', (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const passwordHash = req.body.password;
-  User.signUp(name, email, passwordHash)
+  Buyer.signUp(name, email, passwordHash)
     .then(user => {
       req.session.user = {
         _id: user._id
@@ -40,7 +40,7 @@ router.get('/signin', (req, res, next) => {
 router.post('/signin', (req, res, next) => {
   const email = req.body.email;
   const passwordHash= req.body.password;
-  User.signIn(email, passwordHash)
+  Buyer.signIn(email, passwordHash)
     .then(user => {
       req.session.user = {
         _id: user.id
@@ -103,31 +103,12 @@ router.post('/sellersignin', (req, res, next) => {
 });
 
 
-
-
-router.get('/product', (req, res, next) => { 
-  console.log('Trying to get products'); 
-    Image.find({})
-      // .limit(20)
-      // .sort({ createdAt: -1 })
-      // .exec()
-    .then(products => {
-      console.log("This are products", products);
-      res.render('product', { products });
-    })
-
-    .catch(error => next(error));
+router.get("/", (req, res, next) => {
+  req.session.destroy((err) => {
+    // console.log("No session" + req.session.user._id);
+    res.redirect("/");
+  });
 });
-
-
-
-// router.post("/signout", (req, res, next) => {
-//   req.session.destroy((err) => {
-//     // can't access session here
-//     // console.log("No session" + req.session.user._id);
-//     res.render("authentication/sellersignin");
-//   });
-// });
 
 
 

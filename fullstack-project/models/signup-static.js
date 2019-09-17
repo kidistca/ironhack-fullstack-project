@@ -2,7 +2,6 @@
 
 const bcrypt = require('bcryptjs');
 
-// const User = require('./user');
 
 module.exports = function(name, email, passwordHash) {
     const Model = this;
@@ -15,7 +14,6 @@ module.exports = function(name, email, passwordHash) {
             return bcrypt.hash(passwordHash, 10);
         }   
         })
-    // return bcrypt.hash(passwordHash, 10)
         .then(hash => {
            return Model.create({
                 name, 

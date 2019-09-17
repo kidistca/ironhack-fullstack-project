@@ -1,9 +1,8 @@
 'use strict';
 
 const bcrypt = require('bcryptjs');
-const User = require('./user');
 
-// Create a sign in static that is going to abstact the authentication functionality
+
 module.exports = function(email, password) {
   const Model = this;
 

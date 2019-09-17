@@ -7,10 +7,10 @@ const Image = require('../models/image');
 const upload = require('../config/cloudinary');
 
 
-//---------------------Seller Page - Upload Images --------------------------
-//---------------------Seller Page - Upload Images --------------------------
-//---------------------Seller Page - Upload Images --------------------------
-//---------------------Seller Page - Upload Images --------------------------
+//---------------------Seller Page - Upload Images/products --------------------------
+//---------------------Seller Page - Upload Images/products --------------------------
+//---------------------Seller Page - Upload Images/products --------------------------
+//---------------------Seller Page - Upload Images/products --------------------------
 
 
 router.get('/sellerPage', (req, res, next) => {
