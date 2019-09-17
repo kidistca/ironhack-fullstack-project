@@ -7,7 +7,6 @@ const User = require('./../models/user');
 const Seller = require('./../models/seller');
 const Image = require('./../models/image');
 
-const bcrypt = require('bcrypt');
 
 //-------------- User authentication -----------------------
 //-------------- User authentication -----------------------

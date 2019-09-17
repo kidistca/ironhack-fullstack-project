@@ -12,9 +12,7 @@ const expressSession = require('express-session');
 const MongoStore = require('connect-mongo')(expressSession);
 const mongoose = require('mongoose');
 
-
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/user');
+const homeRouter = require('./routes/home');
 const authenticationRouter = require('./routes/authentication');
 const sellerRouter = require('./routes/sellerRoute');
 
@@ -50,8 +48,7 @@ app.use(expressSession({
 }));
 
 
-app.use('/', indexRouter);
-app.use('/user', usersRouter);
+app.use('/', homeRouter);
 app.use('/', authenticationRouter);
 app.use('/', sellerRouter);
 

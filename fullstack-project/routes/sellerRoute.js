@@ -3,21 +3,18 @@
 const { Router } = require('express');
 const router = Router();
 
-const Seller = require('../models/seller');
 const Image = require('../models/image');
 const upload = require('../config/cloudinary');
-const bcrypt = require('bcrypt');
 
 
 //---------------------Seller Page - Upload Images --------------------------
 //---------------------Seller Page - Upload Images --------------------------
 //---------------------Seller Page - Upload Images --------------------------
 //---------------------Seller Page - Upload Images --------------------------
-
 
 
 router.get('/sellerPage', (req, res, next) => {
-    const id = req.session.seller._id;
+    const id = req.session.user._id;
     console.log("seller id?", id);
       Image.find({sellerId: id})
         .limit(20)
@@ -32,7 +29,7 @@ router.get('/sellerPage', (req, res, next) => {
   
   router.post('/sellerPage', upload.single('file'), (req, res, next) => {
     Image.create({
-      sellerId: req.session.seller._id,
+      sellerId: req.session.user._id,
       description: req.body.description,
       price: req.body.price,
       originalName: req.file.originalname,
@@ -44,3 +41,5 @@ router.get('/sellerPage', (req, res, next) => {
       })
       .catch(error => next(error));
   });
+
+module.exports = router;

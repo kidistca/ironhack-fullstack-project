@@ -1,8 +1,8 @@
 'use strict';
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
-const User = require('./user');
+// const User = require('./user');
 
 module.exports = function(name, email, passwordHash) {
     const Model = this;
