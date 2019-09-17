@@ -1,10 +1,31 @@
 <h2>This is product page! User will be able to see products here</h2>
 
- {{!-- <div class="row d-flex justify-content-center">
-  {{#each images}}
+<form action="/product">
+    <button>Get products</button>
+</form>
+
+  {{!-- <div class="row d-flex justify-content-center">
+  {{#each products}}
     <figure>
       <img src={{this.resizedUrl}} alt={{this.description}}>
       <p>{{this.description}}</p>
     </figure>
   {{/each}}
-</div>   --}}
+</div>    --}}
+
+<div class="seller-products">
+{{#each products}}
+<div class="card col-4" style="width: 18rem;">
+  <img src="{{this.resizedUrl}} " class="card-img-top" alt="{{this.description}}">
+  <div class="card-body">
+    {{!-- <ul class="list-group list-group-horizontal"> --}}
+      <h5 class="card-title">Card title</h5> 
+      <p class="card-text">{{this.description}}</p> 
+      <p>$ {{this.price}}</p>
+      {{!-- <a href="#" class="btn btn-primary">Order</a> --}}
+    </ul>
+  </div>
+</div>
+{{/each}}
+</div>
+</div>

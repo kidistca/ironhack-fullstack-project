@@ -16,6 +16,7 @@ const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/user');
 const authenticationRouter = require('./routes/authentication');
+const sellerRouter = require('./routes/sellerRoute');
 
 const app = express();
 
@@ -52,6 +53,7 @@ app.use(expressSession({
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/', authenticationRouter);
+app.use('/', sellerRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
