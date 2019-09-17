@@ -2,8 +2,6 @@
 
 require('dotenv').config();
 
-console.log(process.env);
-
 const debug = require('debug')('fullstack-project:server');
 const app = require('./../app');
 const database = require('./database');

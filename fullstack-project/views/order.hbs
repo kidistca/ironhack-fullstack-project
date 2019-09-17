@@ -1,0 +1,40 @@
+<div class="navi">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-0">
+  <a class="navbar-brand" href="#">Artisan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto py-md-3">
+        {{!-- mr-auto --}}
+       <li class="nav-item active">
+        <a class="nav-link" href="/sellersignin"> List of order <span class="sr-only">(current)</span></a>
+      </li> 
+       <li class="nav-item active">
+        <form action="/" method="POST">
+        <button class="btn btn-dark">Signout</button></form> 
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1>Ola order place</h1>
+
+<div class="seller-products">
+{{#each products}}
+<div class="card col-4" style="width: 18rem;">
+  <img src="{{this.resizedUrl}} " class="card-img-top" alt="{{this.description}}">
+  <div class="card-body">
+      <h5 class="card-title">Card title</h5> 
+      <p class="card-text">{{this.description}}</p> 
+      <p>{{this._id}}</p>
+      <p>$ {{this.price}}</p>
+      <form action="/order">
+         <button class="btn btn-dark">Order</button>
+      </form>
+    </ul>
+  </div>
+</div>
+{{/each}}
+</div>
+</div>

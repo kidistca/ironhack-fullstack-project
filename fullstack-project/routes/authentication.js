@@ -5,8 +5,7 @@ const router = Router();
 
 const Buyer = require('../models/buyer');
 const Seller = require('./../models/seller');
-const Image = require('./../models/image');
-
+const checkBuyerLogin = require('../controller/checkBuyerLogin');
 
 //-------------- User authentication -----------------------
 //-------------- User authentication -----------------------
@@ -78,16 +77,15 @@ router.post('/sellersignup', (req, res, next) => {
     });
 });
 
+
+
 router.get('/sellersignin', (req, res, next) => {
   res.render('authentication/sellersignin');
 });
 
-// let auxiSellerEmail;
 
 router.post('/sellersignin', (req, res, next) => {
-  // const sellerId = req.params.sellerId;
   const email = req.body.email;
-  // auxiSellerEmail = email;
   const passwordHash = req.body.password;
   Seller.signIn(email, passwordHash)
     .then(seller => {
@@ -95,18 +93,19 @@ router.post('/sellersignin', (req, res, next) => {
         type: "Seller",
         _id: seller._id
       };
-      res.redirect('/SellerPage');
+      res.redirect('/sellerPage');
     })
     .catch(error => {
       console.log(error);
     });
 });
 
+//------Logout - destroy session ----no access to session -----
 
-router.get("/", (req, res, next) => {
+
+router.post('/', (req, res, next) => {
   req.session.destroy((err) => {
-    // console.log("No session" + req.session.user._id);
-    res.redirect("/");
+    res.redirect('/');
   });
 });
 
