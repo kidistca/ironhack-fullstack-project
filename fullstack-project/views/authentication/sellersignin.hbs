@@ -1,8 +1,24 @@
+<div class="navi">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-0">
+  <a class="navbar-brand" href="#">Artisan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto py-md-3">
+        <li class="nav-item active">
+        <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+      </li> 
+    </ul>
+  </div>
+</nav>
+</div>
+
 <div class="top-card-space">
 <div class="card" style="width: 22rem;" style="height: 500px;">
     <form method="POST" action="/sellersignin">
         <div class="card-body">
-            <h5 class="card-title"><strong> Sign in - seller account</strong></h5>
+            <h5 class="card-title"><strong> Seller - Sign in</strong></h5>
         <br>
             <label for="Email">Email</label>
             <input type="email" name="email" required placeholder="Email">
@@ -12,10 +28,9 @@
             <input type="password" name="password" required placeholder="Password">
         <br>
         <br>
-            {{!-- <button class="btn btn-primary"> Sign in</button> --}}
-            <button class="btn btn-outline-info btn-lg btn-block">Sign in</button>
+            <button class="btn btn-outline-secondary btn-lg btn-block">Sign in</button>
         <br>
-            <span>No account? <a href="/sellersignup">Create account</a></span>
+            <span>New to Artisan? <a href="/sellersignup">Create account</a></span>
         </div>
     </form>
 </div>
