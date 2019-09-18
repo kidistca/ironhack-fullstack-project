@@ -15,23 +15,36 @@
   </div>
 </nav>
 
-<h1>Ola order place</h1>
 
-<div class="seller-products">
-{{#each products}}
-<div class="card col-4" style="width: 18rem;">
-  <img src="{{this.resizedUrl}} " class="card-img-top" alt="{{this.description}}">
-  <div class="card-body">
+  <div class="container pt-3">
+  <div class="row">
+    <div class="col-lg">
+    <div class="card" style="width: 30rem;">
+      <img src="{{oneProduct.resizedUrl}} " class="card-img-top" alt="{{oneProduct.description}}">
+    <div class="card-body">
       <h5 class="card-title">Card title</h5> 
-      <p class="card-text">{{this.description}}</p> 
-      <p>{{this._id}}</p>
-      <p>$ {{this.price}}</p>
-      <form action="/order">
-         <button class="btn btn-dark">Order</button>
-      </form>
+      <p class="card-text">{{oneProduct.description}}</p> 
+      <p>$ {{oneProduct.price}}</p>
+      <a href="/ordersuccessful" class="btn btn-dark btn-lg">Order</a>
     </ul>
   </div>
 </div>
-{{/each}}
+</div>
+
+
+    <div class="col-lg">
+    <div class="card" style="width: 30rem;">
+    <div class="card-body">
+      <h5 class="card-title">Contact Information</h5> 
+      <p class="card-text">Name: {{oneSeller.name}}</p> 
+      <p>Email: {{oneSeller.email}}</p>
+      {{!-- <a href="/product/{{oneSeller._id}}" class="btn btn-dark">Order</a> --}}
+    </ul>
+  </div>
 </div>
 </div>
+ </div>
+</div> 
+
+
+
