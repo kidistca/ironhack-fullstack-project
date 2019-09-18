@@ -14,20 +14,27 @@
 
 <div class="container">
   <form method="POST" action="/sellerPage" enctype="multipart/form-data">
-    
+     
+     <h1>Product Settings</h1>
+     <br>
    
+    <label for="upload-description">Product Title</label>
+      <textarea id="upload-description" class="form-control" name="title" placeholder="Title of the product"></textarea>
+    </div>
     <div class="form-group">
       <label for="upload-description">Description</label>
       <textarea id="upload-description" class="form-control" name="description" placeholder="Summary of the product"></textarea>
     </div>
-    <div class="form-group">
+    {{!-- <div class="form-group"> --}}
       {{!-- <label for="upload-deliverytime">Delivery Time (Days)</label>
       <textarea id="upload-description" class="form-control" name="description" placeholder="How much day will your delivery date"></textarea>
     </div> --}}
+    <br>
     <div>
       <label for="price">Price</label>
       <input id="price" required type="text" name="price" placeholder="price">
     </div>
+    <br>
     <div class="form-group">
       <label for="upload-file">Image</label>
       <input id="upload-file" required class="form-control" type="file" name="file">
@@ -44,15 +51,21 @@
   <img src="{{this.resizedUrl}} " class="card-img-top" alt="{{this.description}}">
   <div class="card-body">
     {{!-- <ul class="list-group list-group-horizontal"> --}}
-      <h5 class="card-title">Card title</h5> 
+      <h5 class="card-title">{{this.title}}</h5> 
       <p class="card-text">{{this.description}}</p> 
       <p>
-        <input id="price" required type="text" name="price" placeholder=" $ {{this.price}}">
+        <input id="price" required type="text" name="price" value=" $ {{this.price}}">
 
        </p>
       
-      <a  href="/sellerPage/{{this.id}}" class="btn btn-primary">Delete</a>
-      {{!-- <a  href="/sellerPage/{{this.id}}" class="btn btn-primary">Edit</a> --}}
+      
+      <form action="/sellerPage/edit/{{this._id}}" method="get">
+      <button class="btn btn-dark">Edit</button>
+      </form>
+
+
+
+      <a href="/sellerPage/delete/{{this._id}}" class="btn btn-primary">Delete</>
   </div>
 </div>
 </form>

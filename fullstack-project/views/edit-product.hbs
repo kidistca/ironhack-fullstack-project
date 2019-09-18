@@ -1,0 +1,33 @@
+{{!-- <h1>
+
+
+{{product.price}}
+</h1> --}}
+
+<div class="container">
+  <form method="POST" action="/sellerPage" enctype="multipart/form-data">
+
+     
+     <h1>Change your product details</h1>
+     <br>
+   
+    <label for="upload-description">Product Title</label>
+      <input id="upload-description" class="form-control" name="title" value={{product.title}}></input>
+    </div>
+    <div class="form-group">
+      <label for="upload-description">Description</label>
+      <input id="upload-description" class="form-control" value={{product.description}} name="description" placeholder="Summary of the product"></input>
+    </div>
+    <br>
+    <div>
+      <label for="price">Price</label>
+      <input id="price" type="text" name={{product.price}} placeholder="price">
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="upload-file">Image</label>
+      <input id="upload-file" class="form-control" type="file" name="file">
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -32,7 +32,7 @@ router.get('/sellerPage', (req, res, next) => {
 
 
 
-  router.get('/sellerPage/:_id', (req, res, next) => {
+  router.get('/sellerPage/delete/:_id', (req, res, next) => {
     const sellerId = req.params._id;
 
     // const body = req.body;
@@ -46,27 +46,50 @@ router.get('/sellerPage', (req, res, next) => {
 
 
   
-    
-    
 
 
-  //---------------------Seller Page - Update Images/products --------------------------
 
-  router.get('/sellerPage/:_id', (req, res, next) => {
+//---------------------Seller Page - Update Images/products --------------------------
+  router.get('/sellerPage/edit/:_id', (req, res, next) => {
     const sellerId = req.params._id;
-
+  
     
-    productCard.findByIdAndUpdate(sellerId)
-    .then(() => {
-    res.redirect('/sellerPage');
+    Image.findByIdAndUpdate(sellerId)
+    .then(product => {
+        const data ={ 
+            product
+        }
+      console.log(data)
+    res.render('edit-product', data);
     
   });
-});
+  });
+
+//   router.post('/sellerPage/edit/:_id', (req, res, next) => {
+//     const sellerId = req.params._id;
+//     const description = req.body.description,
+//     const title = req.body.title
+//     const price = req.body.price
+//     Image.findByIdAndUpdate(sellerId, title, description, price)
+//     .then(() => {
 
 
+//     res.redirect('/sellerPage');
+    
+//   });
+// });
+
+
+
+
+
+
+
+//  --------------- UPLOAD FILE ROUTE ---------------
   router.post('/sellerPage', upload.single('file'), (req, res, next) => {
     Image.create({
       sellerId: req.session.user._id,
+      title: req.body.title,
       description: req.body.description,
       price: req.body.price,
       originalName: req.file.originalname,
