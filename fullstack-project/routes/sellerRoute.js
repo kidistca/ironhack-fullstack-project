@@ -32,7 +32,7 @@ router.get('/sellerPage', (req, res, next) => {
 
 
 
-  router.get('/sellerPage/delete/:_id', (req, res, next) => {
+  router.get('/sellerPage/delete/:_id', (req, res) => {
     const sellerId = req.params._id;
 
     // const body = req.body;
@@ -50,16 +50,16 @@ router.get('/sellerPage', (req, res, next) => {
 
 
 //---------------------Seller Page - Update Images/products --------------------------
-  router.get('/sellerPage/edit/:_id', (req, res, next) => {
+  router.get('/sellerPage/edit/:_id', (req, res) => {
     const sellerId = req.params._id;
   
     
     Image.findByIdAndUpdate(sellerId)
     .then(product => {
-        const data ={ 
+        const data ={
             product
-        }
-      console.log(data)
+        };
+      console.log(data);
     res.render('edit-product', data);
     
   });

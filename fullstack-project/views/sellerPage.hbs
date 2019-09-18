@@ -59,13 +59,14 @@
        </p>
       
       
-      <form action="/sellerPage/edit/{{this._id}}" method="get">
+      {{!-- <form action="/sellerPage/edit/{{this._id}}" method="get">
       <button class="btn btn-dark">Edit</button>
-      </form>
+      </form> --}}
+
+      <a href="/sellerPage/edit/{{this._id}}" class="btn btn-primary">Edit</a>
 
 
-
-      <a href="/sellerPage/delete/{{this._id}}" class="btn btn-primary">Delete</>
+      <a href="/sellerPage/delete/{{this._id}}" class="btn btn-primary">Delete</a>
   </div>
 </div>
 </form>
