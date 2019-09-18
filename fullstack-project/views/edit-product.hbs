@@ -1,12 +1,12 @@
 <pre>{{product}}</pre>
 
 <div class="container">
-  <form method="POST" action="/sellerPage/edit" enctype="multipart/form-data">
+  <form method="POST" action="/sellerPage/edit/{{product._id}}">
   
      
      <h1>Change your product details</h1>
      <br>
-   
+   <img src="{{product.resizedUrl}} " class="card-img-top" alt="{{product.description}}">
     <label for="upload-description">Product Title</label>
       <input id="upload-description" class="form-control" name="title" value="{{product.title}}"></input>
     </div>

@@ -54,7 +54,7 @@ router.get('/sellerPage', (req, res, next) => {
     const sellerId = req.params._id;
   
     
-    Image.findByIdAndUpdate(sellerId)
+    Image.findById(sellerId)
     .then(product => {
         const data ={
             product
@@ -65,19 +65,30 @@ router.get('/sellerPage', (req, res, next) => {
   });
   });
 
-//   router.post('/sellerPage/edit/:_id', (req, res, next) => {
-//     const sellerId = req.params._id;
-//     const description = req.body.description,
-//     const title = req.body.title
-//     const price = req.body.price
-//     Image.findByIdAndUpdate(sellerId, title, description, price)
-//     .then(() => {
+  router.post('/sellerPage/edit/:_id', (req, res) => {
+    const productId = req.params._id;
+    const title = req.body.title;
+    const price = req.body.price;
+    const description = req.body.description;
+
+  //  res.send(data);
+    Image.findByIdAndUpdate(productId,{ 
+      title: title, 
+      price: price,
+      description: description
+     } )
+    .then(data => {
+      console.log(data)
+      res.redirect('/sellerPage');
+    });
+  });
+
+  
 
 
-//     res.redirect('/sellerPage');
     
-//   });
-// });
+
+    
 
 
 

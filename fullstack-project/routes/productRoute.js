@@ -23,7 +23,7 @@ router.get('/product', checkBuyerLogin,(req, res, next) => {
       .catch(error => next(error));
   });
   
-router.get('/order', (req, res, next) => {
+router.get('/order', (req, res,) => {
   // console.log(req.session.uid);
     res.render('order');
 
