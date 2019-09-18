@@ -6,10 +6,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-   <form class="form-inline  ">
+   {{!-- <form class="form-inline  ">
       <input class="form-control " id="inputdefault" width="100px" height="50px" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-    </form> 
+    </form>  --}}
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto py-md-3">
@@ -23,23 +23,17 @@
 </nav>
 
 
-
-{{!-- <div class="seller-products"> --}}
   <div class="container pt-5">
   <div class="row">
 {{#each products}}
-
     <div class="col-lg">
     <div class="card" style="width: 21rem;">
       <img src="{{this.resizedUrl}} " class="card-img-top" alt="{{this.description}}">
     <div class="card-body">
       <h5 class="card-title">Card title</h5> 
       <p class="card-text">{{this.description}}</p> 
-      <p>{{this._id}}</p>
       <p>$ {{this.price}}</p>
-      <form action="/order">
-         <button class="btn btn-dark btn-lg" value=this._id>Order</button>
-      </form>
+      <a href="/product/{{this._id}}" class="btn btn-dark btn-lg">View</a>
     </ul>
   </div>
 </div>
