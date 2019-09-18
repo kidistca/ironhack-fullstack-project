@@ -26,7 +26,44 @@ router.get('/sellerPage', (req, res, next) => {
       })
       .catch(error => next(error));
   });
+
+
+  //---------------------Seller Page - Delete Images/products --------------------------
+
+
+
+  router.get('/sellerPage/:_id', (req, res, next) => {
+    const sellerId = req.params._id;
+
+    // const body = req.body;
+    // find and delete - then redirect
+    Image.findByIdAndDelete(sellerId)
+    .then(() => {
+    res.redirect('/sellerPage');
+    
+  });
+});
+
+
   
+    
+    
+
+
+  //---------------------Seller Page - Update Images/products --------------------------
+
+  router.get('/sellerPage/:_id', (req, res, next) => {
+    const sellerId = req.params._id;
+
+    
+    productCard.findByIdAndUpdate(sellerId)
+    .then(() => {
+    res.redirect('/sellerPage');
+    
+  });
+});
+
+
   router.post('/sellerPage', upload.single('file'), (req, res, next) => {
     Image.create({
       sellerId: req.session.user._id,
@@ -40,6 +77,8 @@ router.get('/sellerPage', (req, res, next) => {
         res.redirect('/sellerPage');
       })
       .catch(error => next(error));
-  });
+    });
+    
+
 
 module.exports = router;
