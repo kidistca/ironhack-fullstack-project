@@ -21,9 +21,11 @@ router.post('/signup', (req, res, next) => {
   const email = req.body.email;
   const passwordHash = req.body.password;
   Buyer.signUp(name, email, passwordHash)
-    .then(user => {
+    .then(buyer => {
       req.session.user = {
-        _id: user._id
+        _id: buyer._id,
+        email: buyer.email,
+        name: buyer.name
       };
       res.render('authentication/usersignin');
     })
@@ -40,9 +42,11 @@ router.post('/signin', (req, res, next) => {
   const email = req.body.email;
   const passwordHash= req.body.password;
   Buyer.signIn(email, passwordHash)
-    .then(user => {
+    .then(buyer => {
       req.session.user = {
-        _id: user.id
+        _id: buyer._id,
+        email: buyer.email,
+        name: buyer.name
       };
       res.redirect('/product');
     })

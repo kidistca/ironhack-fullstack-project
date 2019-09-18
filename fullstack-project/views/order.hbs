@@ -25,7 +25,12 @@
       <h5 class="card-title">Card title</h5> 
       <p class="card-text">{{oneProduct.description}}</p> 
       <p>$ {{oneProduct.price}}</p>
-      <a href="/ordersuccessful" class="btn btn-dark btn-lg">Order</a>
+      {{!-- <a href="/ordersuccessful" class="btn btn-dark btn-lg">Order</a> --}}
+
+      <form action="/ordersuccessful" method="POST">
+          <button class="btn btn-dark btn-lg">Order</button>
+      </form>
+
     </ul>
   </div>
 </div>

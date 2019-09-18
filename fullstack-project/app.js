@@ -1,6 +1,8 @@
 'use strict';
 
-const { join } = require('path');
+const {
+  join
+} = require('path');
 const express = require('express');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
@@ -16,6 +18,7 @@ const homeRouter = require('./routes/home');
 const authenticationRouter = require('./routes/authentication');
 const sellerRouter = require('./routes/sellerRoute');
 const productRouter = require('./routes/productRoute');
+const sendEmailRouter = require('./routes/sendEmail');
 
 const app = express();
 
@@ -35,11 +38,15 @@ app.use(sassMiddleware({
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(expressSession({
   secret: process.env.SESSION_SECRET,
-  cookie: { maxAge: 60 * 60 * 24 * 1000 },
+  cookie: {
+    maxAge: 60 * 60 * 24 * 1000
+  },
   resave: true,
   saveUninitialized: false,
   store: new MongoStore({
@@ -53,6 +60,7 @@ app.use('/', homeRouter);
 app.use('/', authenticationRouter);
 app.use('/', sellerRouter);
 app.use('/', productRouter);
+app.use('/', sendEmailRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

@@ -9,7 +9,7 @@ const Image = require('../models/image');
 const Seller = require('./../models/seller');
 const checkBuyerLogin = require('../controller/checkBuyerLogin');
 
-
+//--------------------Get all products -----------------------
 
 router.get('/product', checkBuyerLogin, (req, res, next) => {
   console.log('Trying to get products');
@@ -44,7 +44,9 @@ router.get('/product', checkBuyerLogin, (req, res, next) => {
 //   .catch(error => next(error));
 // });
 
-
+//-------------------Get a selected product and the seller information ----------------
+//-------------------Get a selected product and the seller information ----------------
+//-------------------Get a selected product and the seller information ----------------
 
 router.get('/product/:id', (req, res, next) => {
   const productId = req.params.id;
@@ -54,7 +56,6 @@ router.get('/product/:id', (req, res, next) => {
       Seller.findById(sellerId)
         .then(oneSeller => {
           console.log("the seller's name", oneSeller.name);
-          // res.render('order',{oneSeller});
           res.render('order', {
             oneProduct,
             oneSeller
