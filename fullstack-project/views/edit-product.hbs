@@ -1,25 +1,54 @@
-<pre>{{product}}</pre>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-0">
+  <a class="navbar-brand" href="#">Artisan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto py-md-3">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li> 
+      <li class="nav-item active">
+        <a class="nav-link" href="/seller-profile">Profile <span class="sr-only">(current)</span></a>
+      </li> 
+        <form action="/" method="POST">
+        <button class="btn btn-dark">Sign out</button></form> 
+    </ul>
+  </div>
+</nav>
+
+
+{{!-- <img src="{{product.resizedUrl}} " class="card-img-top" alt="{{product.description}}"> --}}
+    
+<div class="card m-10 pt-3 mt-5 pb-3" style="width: 40rem;">
+  <img src="{{product.resizedUrl}}" class="card-img-top" alt="{{product.description}}">
+</div>
+
+<div class="container p-2 pb-5 m-10 pt-3 mt-5 pb-3">
+    <h2><strong>Change your product details</strong></h2>
+</div>
 
 <div class="container">
   <form method="POST" action="/sellerPage/edit/{{product._id}}">
-  
-     
-     <h1>Change your product details</h1>
-     <br>
-   <img src="{{product.resizedUrl}} " class="card-img-top" alt="{{product.description}}">
-    <label for="upload-description">Product Title</label>
-      <input id="upload-description" class="form-control" name="title" value="{{product.title}}"></input>
-    </div>
-    <div class="form-group">
+     <div class="form-group">
+      <label for="title">Product Title</label>
+      <input id="title" class="form-control" name="title" value="{{product.title}}"></input>
+      </div>
+     <div class="form-group">
       <label for="upload-description">Description</label>
       <input id="upload-description" class="form-control" value="{{product.description}}" name="description" placeholder="Summary of the product"></input>
-    </div>
-    <br>
-    <div>
+     </div>
+     <div class="form-group">
       <label for="price">Price</label>
-      <input id="price" required type="text" name="price" value="{{product.price}}"  placeholder="price">
+      <input id="price" required class="form-control" type="text" name="price" value="{{product.price}}"  placeholder="price">
+     </div>
+     <div class="form-group">
+    <button class="btn btn-outline-secondary btn-lg form-control">Edit Product</button>
     </div>
-    <br>
-    <button class="btn btn-primary">Submit</button>
   </form>
 </div>
+
+
+
+

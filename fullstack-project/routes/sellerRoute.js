@@ -5,6 +5,7 @@ const router = Router();
 
 const Image = require('../models/image');
 const upload = require('../config/cloudinary');
+const checkBuyerLogin = require('../controller/checkBuyerLogin');
 
 
 //---------------------Seller Page - Upload Images/products --------------------------
@@ -13,7 +14,7 @@ const upload = require('../config/cloudinary');
 //---------------------Seller Page - Upload Images/products --------------------------
 
 
-router.get('/sellerPage', (req, res, next) => {
+router.get('/sellerPage', checkBuyerLogin, (req, res, next) => {
     const id = req.session.user._id;
     console.log("seller id?", id);
       Image.find({sellerId: id})
@@ -21,22 +22,34 @@ router.get('/sellerPage', (req, res, next) => {
         .sort({ createdAt: -1 })
         .exec()
       .then(images => {
-        // console.log(images);
         res.render('sellerPage', { images });
       })
       .catch(error => next(error));
   });
 
+  router.post('/sellerPage', checkBuyerLogin, upload.single('file'), (req, res, next) => {
+    Image.create({
+      sellerId: req.session.user._id,
+      sellerName: req.session.user.name,
+      productcategory: req.body.productcategory,
+      description: req.body.description,
+      delivery: req.body.delivery,
+      price: req.body.price,
+      originalName: req.file.originalname,
+      url: req.file.url
+    })
+      .then(file => {
+        console.log(file);
+        res.redirect('/sellerPage');
+      })
+      .catch(error => next(error));
+    });
 
-  //---------------------Seller Page - Delete Images/products --------------------------
-
-
+  //---------------------Seller Page - Delete product --------------------------
+  //---------------------Seller Page - Delete product --------------------------
 
   router.get('/sellerPage/delete/:_id', (req, res) => {
     const sellerId = req.params._id;
-
-    // const body = req.body;
-    // find and delete - then redirect
     Image.findByIdAndDelete(sellerId)
     .then(() => {
     res.redirect('/sellerPage');
@@ -46,14 +59,11 @@ router.get('/sellerPage', (req, res, next) => {
 
 
   
+//---------------------Seller Page - product detail --------------------------
+//---------------------Seller Page - product detail --------------------------
 
-
-
-//---------------------Seller Page - Update Images/products --------------------------
   router.get('/sellerPage/edit/:_id', (req, res) => {
     const sellerId = req.params._id;
-  
-    
     Image.findById(sellerId)
     .then(product => {
         const data ={
@@ -71,48 +81,16 @@ router.get('/sellerPage', (req, res, next) => {
     const price = req.body.price;
     const description = req.body.description;
 
-  //  res.send(data);
     Image.findByIdAndUpdate(productId,{ 
       title: title, 
       price: price,
       description: description
      } )
     .then(data => {
-      console.log(data);
       res.redirect('/sellerPage');
     });
   });
 
   
-
-
-    
-
-    
-
-
-
-
-
-
-
-//  --------------- UPLOAD FILE ROUTE ---------------
-  router.post('/sellerPage', upload.single('file'), (req, res, next) => {
-    Image.create({
-      sellerId: req.session.user._id,
-      title: req.body.title,
-      description: req.body.description,
-      price: req.body.price,
-      originalName: req.file.originalname,
-      url: req.file.url
-    })
-      .then(file => {
-        console.log(file);
-        res.redirect('/sellerPage');
-      })
-      .catch(error => next(error));
-    });
-    
-
 
 module.exports = router;

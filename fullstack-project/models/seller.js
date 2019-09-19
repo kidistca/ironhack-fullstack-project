@@ -12,6 +12,21 @@ const sellerSchema = new mongoose.Schema({
     lowercase: true,
     trim: true
   }, 
+  city: {
+    type: String,
+    required: true
+  },
+  postalcode: {
+    type: Number,
+    required: true
+  },
+  country: {
+    type: String,
+    required: true
+  },
+  phonenumber: {
+    type: Number
+  },
   passwordHash: {
     type: String,
     required: true

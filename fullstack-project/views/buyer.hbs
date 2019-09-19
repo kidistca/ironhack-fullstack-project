@@ -9,6 +9,9 @@
        <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li> 
+       <li class="nav-item active">
+        <a class="nav-link" href="/product">Products <span class="sr-only">(current)</span></a>
+      </li>
         <form action="/" method="POST">
         <button class="btn btn-dark">Sign out</button></form> 
     </ul>
@@ -22,8 +25,8 @@
     <br><br>
      <h4><strong>Name:</strong> {{buyer.name}}</h4>
      <h4><strong>Email:</strong> {{buyer.email}}</h4>
-
 </div>
+
 <div class="container p-2 m-10">
 <form action="/buyer-profile" method="POST">
   <div class="form-group">

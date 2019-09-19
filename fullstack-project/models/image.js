@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const imageSchema = new mongoose.Schema({
-  title: {
+  productcategory: {
     type: String,
     trim: true
   },
@@ -16,6 +16,10 @@ const imageSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
+  delivery: {
+    type: String,
+    required: true
+  },
   originalName: {
     type: String,
     trim: true
@@ -24,12 +28,12 @@ const imageSchema = new mongoose.Schema({
     type: String,
     trim: true
   },
-  // sellerEmail: {
-  //   type: String
-  // },
   sellerId:{
       type: mongoose.Schema.Types.ObjectId
     },
+  sellerName: {
+    type: String
+  },
   path: {
     type: String,
     trim: true

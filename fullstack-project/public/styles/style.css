@@ -12,21 +12,13 @@ a {
   margin: auto;
   /* padding: 50px; */
 }
-.card-body{
-  text-align: center;
-}
+
 .card-body input {
   width: 300px;
 } 
 
-/* .navbar{
-  padding: 20px;
-} */
 .collapse{
   margin-right: 80px;
-  /* margin-left: 300px; */
-  /* padding-left: 20px;
-  margin-right: 70px; */
 }
 .navbar-brand{
   margin-left: 30px;
@@ -62,10 +54,6 @@ a {
   width: auto;
 }  */
 
-
-.card-body{
-  text-align: center;
-} 
 .top-card-space{
   margin-top: 5em;
 }
