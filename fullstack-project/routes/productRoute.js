@@ -28,8 +28,6 @@ router.get('/product', checkBuyerLogin, (req, res, next) => {
 });
 
 
-
-
 // router.get('/product/:id', (req, res, next) => {
 //   const id = req.params.id;
 //   // const sellerId = Seller._id;

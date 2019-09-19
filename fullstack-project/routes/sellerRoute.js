@@ -78,7 +78,7 @@ router.get('/sellerPage', (req, res, next) => {
       description: description
      } )
     .then(data => {
-      console.log(data)
+      console.log(data);
       res.redirect('/sellerPage');
     });
   });

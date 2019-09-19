@@ -19,6 +19,7 @@ const authenticationRouter = require('./routes/authentication');
 const sellerRouter = require('./routes/sellerRoute');
 const productRouter = require('./routes/productRoute');
 const sendEmailRouter = require('./routes/sendEmail');
+const buyerRouter = require('./routes/buyerRoute');
 
 const app = express();
 
@@ -61,6 +62,8 @@ app.use('/', authenticationRouter);
 app.use('/', sellerRouter);
 app.use('/', productRouter);
 app.use('/', sendEmailRouter);
+app.use('/', buyerRouter);
+
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {

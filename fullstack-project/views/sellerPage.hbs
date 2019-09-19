@@ -1,25 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-0">
+  <a class="navbar-brand" href="#">Artisan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-{{!-- <div class="row d-flex justify-content-center">
-  {{#each images}}
-    <figure>
-      <img src={{this.resizedUrl}} alt={{this.description}}>
-      <p>{{this.description}}</p>
-    </figure>
-  {{/each}}
-</div>   --}}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto py-md-3">
+       {{!-- <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li> 
+      <li class="nav-item active">
+        <a class="nav-link" href="/buyer-profile">Profile <span class="sr-only">(current)</span></a>
+      </li>  --}}
+        <form action="/" method="POST">
+        <button class="btn btn-dark">Sign out</button></form> 
+    </ul>
+  </div>
+</nav>
 
-{{!-- Navigator the same as the nav --}}
-
-
+<div class="container p-2 pb-5 m-10 pt-3 mt-5 pb-3">
+    <h2><strong>Add Product </strong></h2>
+</div>
 
 <div class="container">
   <form method="POST" action="/sellerPage" enctype="multipart/form-data">
-     
-     <h1>Product Settings</h1>
-     <br>
-   
-    <label for="upload-description">Product Title</label>
-      <textarea id="upload-description" class="form-control" name="title" placeholder="Title of the product"></textarea>
+    <div class="form-group">
+    <label for="title">Product Title</label>
+      <textarea id="title" class="form-control" name="title" placeholder="Title of the product"></textarea>
     </div>
     <div class="form-group">
       <label for="upload-description">Description</label>
@@ -29,44 +36,31 @@
       {{!-- <label for="upload-deliverytime">Delivery Time (Days)</label>
       <textarea id="upload-description" class="form-control" name="description" placeholder="How much day will your delivery date"></textarea>
     </div> --}}
-    <br>
-    <div>
+    <div class="form-group">
       <label for="price">Price</label>
-      <input id="price" required type="text" name="price" placeholder="price">
+      <input id="price" class="form-control" required type="text" name="price" placeholder="Price">
     </div>
-    <br>
     <div class="form-group">
       <label for="upload-file">Image</label>
       <input id="upload-file" required class="form-control" type="file" name="file">
     </div>
-    <button class="btn btn-primary">Upload file</button>
+    <div class="form-group">
+      <button class="btn btn-outline-secondary btn-lg form-control">Upload Product</button>
+    </div>
   </form>
+</div>
 </div>
 
 <div class="seller-products">
 {{#each images}}
-{{!-- <form action="/sellerPage" method="POST" > --}}
-
 <div class="card" style="width: 18rem;">
   <img src="{{this.resizedUrl}} " class="card-img-top" alt="{{this.description}}">
   <div class="card-body">
-    {{!-- <ul class="list-group list-group-horizontal"> --}}
       <h5 class="card-title">{{this.title}}</h5> 
       <p class="card-text">{{this.description}}</p> 
-      <p>
-        <input id="price" required type="text" name="price" value=" $ {{this.price}}">
-
-       </p>
-      
-      
-      {{!-- <form action="/sellerPage/edit/{{this._id}}" method="get">
-      <button class="btn btn-dark">Edit</button>
-      </form> --}}
-
-      <a href="/sellerPage/edit/{{this._id}}" class="btn btn-primary">Edit</a>
-
-
-      <a href="/sellerPage/delete/{{this._id}}" class="btn btn-primary">Delete</a>
+      <p>{{this.price}}</p>
+      <a href="/sellerPage/edit/{{this._id}}" class="btn btn-outline-primary btn-lg">Edit</a>
+      <a href="/sellerPage/delete/{{this._id}}" class="btn btn-outline-danger btn-lg">Delete</a>
   </div>
 </div>
 </form>
