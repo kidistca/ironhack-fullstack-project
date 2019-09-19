@@ -67,7 +67,7 @@ router.get('/product/:id', (req, res, next) => {
 });
 
 
-router.get('/ordersuccessful', (req, res, next) => {
+router.get('/ordersuccessful', (req, res) => {
   res.render('orderSuccessful');
 });
 
