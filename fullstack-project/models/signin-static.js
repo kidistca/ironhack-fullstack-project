@@ -11,7 +11,8 @@ module.exports = function(email, password) {
   return Model.findByEmail(email)
     .then(user => {
       if (!user) {
-        throw new Error('USER_NOT_FOUND');
+        console.error('USER_NOT_FOUND');
+        throw new Error('WRONG_EMAIL_OR_PASSWORD');
       } else {
         auxiliaryUser = user;
         return bcrypt.compare(password, user.passwordHash);
@@ -19,7 +20,8 @@ module.exports = function(email, password) {
     })
     .then(matches => {
       if (!matches) {
-        throw new Error('PASSWORD_DOESNT_MATCH');
+        console.error('PASSWORD_DOESNT_MATCH');
+        throw new Error('WRONG_EMAIL_OR_PASSWORD');
       } else {
         return Promise.resolve(auxiliaryUser);
       }

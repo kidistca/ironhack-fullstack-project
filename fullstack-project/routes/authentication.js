@@ -5,7 +5,7 @@ const router = Router();
 
 const Buyer = require('../models/buyer');
 const Seller = require('./../models/seller');
-const checkBuyerLogin = require('../controller/checkBuyerLogin');
+const checkLogin = require('../controller/checkLogin');
 
 //-------------- User authentication -----------------------
 //-------------- User authentication -----------------------
@@ -20,7 +20,7 @@ router.post('/signup', (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const passwordHash = req.body.password;
-  Buyer.signUp(name, email, passwordHash)
+  Buyer.buyerSignUp({name, email, passwordHash})
     .then(buyer => {
       req.session.user = {
         _id: buyer._id,
@@ -51,7 +51,9 @@ router.post('/signin', (req, res, next) => {
       res.redirect('/product');
     })
     .catch(error => {
-      console.log(error);
+      res.render('authentication/usersignin', {error: error });
+      // console.log(error);
+      // next(error);
     });
 });
 
@@ -67,12 +69,18 @@ router.get('/sellersignup', (req, res, next) => {
 router.post('/sellersignup', (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
+  const city = req.body.city;
+  const postalcode = req.body.postalcode;
+  const country = req.body.country;
+  const phonenumber = req.body.phonenumber;
   const passwordHash = req.body.password;
-  Seller.signUp(name, email, passwordHash)
+  
+  Seller.signUp({name, email, city, postalcode, country, phonenumber, passwordHash})
     .then(seller => {
       req.session.user = {
         type: "Seller",
-        _id: seller._id
+        _id: seller._id,
+        name: seller.name
       };
       res.render('authentication/sellersignin');
     })
@@ -95,12 +103,14 @@ router.post('/sellersignin', (req, res, next) => {
     .then(seller => {
       req.session.user = {
         type: "Seller",
-        _id: seller._id
+        _id: seller._id,
+        name: seller.name
       };
       res.redirect('/sellerPage');
     })
     .catch(error => {
-      console.log(error);
+      res.render('authentication/sellersignin', { error });
+      // console.log(error);
     });
 });
 

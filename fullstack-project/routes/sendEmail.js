@@ -8,9 +8,8 @@ const router = Router();
 const nodemailer = require('nodemailer');
 
 router.post('/ordersuccessful', (req, res, next) => {
-            // const buyerEmail = req.session.user.email;
+            const buyerEmail = req.session.user.email;
             const buyerName = req.session.user.name;
-
             const transporter = nodemailer.createTransport({
                 service: 'Gmail',
                 auth: {
@@ -19,8 +18,8 @@ router.post('/ordersuccessful', (req, res, next) => {
                 }
             });
 
-            const to = 'localsartisan@gmail.com';
-            const subject = 'It worker!';
+            const to = buyerEmail;
+            const subject = 'Order';
             const message = `Hi ${buyerName}, we have recieved your order.`;
             // ${buyerName},
             transporter.sendMail({

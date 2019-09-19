@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-0">
+  <a class="navbar-brand" href="#">Artisan</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto py-md-3">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li> 
+      <li class="nav-item active">
+        <a class="nav-link" href="/seller-profile">Profile <span class="sr-only">(current)</span></a>
+      </li> 
+        <form action="/" method="POST">
+        <button class="btn btn-dark">Sign out</button></form> 
+    </ul>
+  </div>
+</nav>
+
+
+    
+<div class="card m-10 mt-5" style="width: 40rem;">
+  <img src="{{product.resizedUrl}}" class="card-img-top" alt="{{product.description}}">
+</div>
+
+<div class="container p-2 pb-5 m-10 pt-3 mt-5 pb-3">
+    <h2><strong>Change your product details</strong></h2>
+</div>
+
+<div class="container">
+  <form method="POST" action="/sellerPage/edit/{{product._id}}">
+  <div class="form-group">
+    <label for="product-category">Product Category</label>
+    <select class="form-control" id="product-category" name="productcategory" value="{{product.productcategory}}">
+      <option>Custom Clothing</option>
+      <option>Food & Drink</option>
+      <option>Painting</option>
+      <option>Pottery</option> 
+      </select>
+      </div>
+     <div class="form-group">
+      <label for="upload-description">Description</label>
+      <input id="upload-description" class="form-control" value="{{product.description}}" name="description" placeholder="Summary of the product"></input>
+     </div>
+     <div class="form-group">
+      <label for="price">Price</label>
+      <input id="price" required class="form-control" type="text" name="price" value="{{product.price}}"  placeholder="price">
+     </div>
+     <div class="form-group">
+      <label for="delivery">Expected delivery</label>
+      <input id="delivery" class="form-control" required type="delivery" name="delivery" value="{{product.delivery}}">
+    </div>
+     <div class="form-group">
+    <button class="btn btn-outline-secondary btn-lg form-control">Edit Product</button>
+    </div>
+  </form>
+</div>
+
+
+
+

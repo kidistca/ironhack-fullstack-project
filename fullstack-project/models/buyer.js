@@ -18,12 +18,12 @@ const buyerSchema = new mongoose.Schema({
   }
 });
 
-const buyerSignupStatic = require('./signup-static');
+const buyerSignupStatic = require('./buyerSignup-static');
 const buyerSigninStatic = require('./signin-static');
 const findByEmailStatic = require('./findByEmail');
 
 buyerSchema.statics.signIn = buyerSigninStatic;
-buyerSchema.statics.signUp  = buyerSignupStatic;
+buyerSchema.statics.buyerSignUp  = buyerSignupStatic;
 buyerSchema.statics.findByEmail = findByEmailStatic;
 
 module.exports = mongoose.model('Buyer', buyerSchema);

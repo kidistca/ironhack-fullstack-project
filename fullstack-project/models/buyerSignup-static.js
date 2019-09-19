@@ -3,15 +3,11 @@
 const bcrypt = require('bcryptjs');
 
 
-module.exports = function({name, email,city, 
-    postalcode, 
-    country, 
-    phonenumber, passwordHash}) {
+module.exports = function({name, email, passwordHash}) {
     const Model = this;
     return Model.findByEmail(email)
         .then(user => {
         if (user) {
-            // throw new Error('User_already_exits');
             throw new Error('USER_ALREADY_EXISTS');
         } else {
             return bcrypt.hash(passwordHash, 10);
@@ -19,12 +15,8 @@ module.exports = function({name, email,city,
         })
         .then(hash => {
            return Model.create({
-            name, 
-            email, 
-            city, 
-            postalcode, 
-            country, 
-            phonenumber, 
+            name,
+            email,  
             passwordHash: hash
             });
         })
