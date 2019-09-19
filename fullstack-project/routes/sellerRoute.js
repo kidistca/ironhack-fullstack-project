@@ -5,7 +5,7 @@ const router = Router();
 
 const Image = require('../models/image');
 const upload = require('../config/cloudinary');
-const checkBuyerLogin = require('../controller/checkBuyerLogin');
+const checkLogin = require('../controller/checkLogin');
 
 
 //---------------------Seller Page - Upload Images/products --------------------------
@@ -14,7 +14,7 @@ const checkBuyerLogin = require('../controller/checkBuyerLogin');
 //---------------------Seller Page - Upload Images/products --------------------------
 
 
-router.get('/sellerPage', checkBuyerLogin, (req, res, next) => {
+router.get('/sellerPage', checkLogin, (req, res, next) => {
     const id = req.session.user._id;
     console.log("seller id?", id);
       Image.find({sellerId: id})
@@ -27,7 +27,7 @@ router.get('/sellerPage', checkBuyerLogin, (req, res, next) => {
       .catch(error => next(error));
   });
 
-  router.post('/sellerPage', checkBuyerLogin, upload.single('file'), (req, res, next) => {
+  router.post('/sellerPage', checkLogin, upload.single('file'), (req, res, next) => {
     Image.create({
       sellerId: req.session.user._id,
       sellerName: req.session.user.name,

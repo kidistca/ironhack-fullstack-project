@@ -4,10 +4,11 @@ const { Router } = require('express');
 const router = Router();
 
 const Buyer = require('../models/buyer');
+const checkLogin = require('../controller/checkLogin');
 
-//-------------------Get buyer profile
+//-------------------Get buyer profile -----------------------------------
 
-router.get('/buyer-profile', (req, res, next) => {
+router.get('/buyer-profile', checkLogin, (req, res, next) => {
     const buyerId = req.session.user._id;
     // const buyerId = req.params.id;
     Buyer.findById(buyerId)
@@ -34,7 +35,7 @@ router.post('/buyer-profile', (req, res, next) => {
 //--------------- Delete buyer profile--------------------------------
 //--------------- Delete buyer profile--------------------------------
 
-router.post('/buyer-profile', (req, res, next) => {
+router.get('/buyer-profile/delete', (req, res, next) => {
     const buyerId = req.session.user._id;
     Buyer.findByIdAndDelete(buyerId)
     .then(() => {

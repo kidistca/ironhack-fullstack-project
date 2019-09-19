@@ -22,10 +22,17 @@
         <br>
             <label for="Email">Email</label>
             <input type="email" name="email" required placeholder="Email">
-        <br>
-        <br>
+            {{#if error}}
+            <span>{{this.error}}</span>
+            {{/if}}
+            <br>
+            <br>
             <label for="Password">Password</label>
             <input type="password" name="password" required placeholder="Password">
+            {{#if error}}
+            <br>
+            <span>{{this.error}}</span>
+            {{/if}}
         <br>
         <br>
             <button class="btn btn-outline-secondary btn-lg btn-block">Sign in</button>

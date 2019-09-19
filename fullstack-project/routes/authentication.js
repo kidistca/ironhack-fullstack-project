@@ -5,7 +5,7 @@ const router = Router();
 
 const Buyer = require('../models/buyer');
 const Seller = require('./../models/seller');
-const checkBuyerLogin = require('../controller/checkBuyerLogin');
+const checkLogin = require('../controller/checkLogin');
 
 //-------------- User authentication -----------------------
 //-------------- User authentication -----------------------
@@ -51,7 +51,9 @@ router.post('/signin', (req, res, next) => {
       res.redirect('/product');
     })
     .catch(error => {
-      console.log(error);
+      res.render('authentication/usersignin', {error: error });
+      // console.log(error);
+      // next(error);
     });
 });
 
@@ -107,7 +109,8 @@ router.post('/sellersignin', (req, res, next) => {
       res.redirect('/sellerPage');
     })
     .catch(error => {
-      console.log(error);
+      res.render('authentication/sellersignin', { error });
+      // console.log(error);
     });
 });
 

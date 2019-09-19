@@ -11,9 +11,12 @@
        <li class="nav-item active">
         <a class="nav-link" href="/product">Products <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
+      {{!-- <li class="nav-item active">
         <a class="nav-link" href="/listoforder"> List of order <span class="sr-only">(current)</span></a>
-      </li> 
+      </li>  --}}
+      <li class="nav-item active">
+        <a class="nav-link" href="/buyer-profile">Profile <span class="sr-only">(current)</span></a>
+      </li>
         <form action="/" method="POST">
         <button class="btn btn-dark">Sign out</button></form> 
     </ul>
@@ -43,10 +46,11 @@
     <div class="col-lg p-2">
     <div class="card" style="width: 30rem;">
     <div class="card-body">
-      <h4 class="card-title text-center"><strong>Contact Information</strong></h4> 
+      <h4 class="card-title"><strong>Artisan Contact Information</strong></h4> 
       <br>
       <p class="card-text"><strong>Name: </strong>{{oneSeller.name}}</p> 
       <p class="card-text"><strong>Pickup location: </strong>{{oneSeller.postalcode}}, {{oneSeller.city}}, {{oneSeller.country}}</p> 
+      <p class="card-text"><strong>Pick up in: </strong>{{oneProduct.delivery}} days</p> 
       <p class="card-text"><strong>Phone number: </strong>{{oneSeller.phonenumber}}</p> 
       <p class="card-text"><strong>Email: </strong>{{oneSeller.email}}</p> 
       <p></p>
