@@ -34,7 +34,7 @@
       <p class="card-text">{{oneProduct.description}}</p> 
       <p class="card-text"><strong>Artisan: </strong>{{oneProduct.sellerName}}</p> 
       <p class="card-text">€ {{oneProduct.price}}</p>
-      <form action="/ordersuccessful" method="POST">
+      <form action="/orderSuccessful/{{oneProduct._id}}" method="POST">
           <button class="btn btn-dark btn-lg">Order</button>
       </form>
     </ul>
@@ -49,7 +49,7 @@
       <h4 class="card-title"><strong>Artisan Contact Information</strong></h4> 
       <br>
       <p class="card-text"><strong>Name: </strong>{{oneSeller.name}}</p> 
-      <p class="card-text"><strong>Pickup location: </strong>{{oneSeller.postalcode}}, {{oneSeller.city}}, {{oneSeller.country}}</p> 
+      <p class="card-text"><strong>Pickup Location: </strong>{{oneSeller.postalcode}}, {{oneSeller.city}}, {{oneSeller.country}}</p> 
       <p class="card-text"><strong>Pick up in: </strong>{{oneProduct.delivery}} days</p> 
       <p class="card-text"><strong>Phone number: </strong>{{oneSeller.phonenumber}}</p> 
       <p class="card-text"><strong>Email: </strong>{{oneSeller.email}}</p> 

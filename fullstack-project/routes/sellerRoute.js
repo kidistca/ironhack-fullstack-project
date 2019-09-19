@@ -87,15 +87,12 @@ router.get('/sellerPage', checkLogin, (req, res, next) => {
   //---------------------Seller Page - Delete product --------------------------
   //---------------------Seller Page - Delete product --------------------------
 
-  router.get('/seller-profile/delete', (req, res, next) => {
-    const sellerId = req.session.user._id;
-    const p1 = Image.deleteMany({ sellerId });
-    const p2 = Seller.findByIdAndDelete(sellerId);
-    Promise.all([p1, p2])
-      .then((r1, r2) => {
-        req.session.destroy();
-        res.redirect('/');
-      });
- });
+  router.get('/sellerPage/delete/:_id', (req, res) => {
+    const sellerId = req.params._id;
+    Image.findByIdAndDelete(sellerId)
+    .then(() => {
+    res.redirect('/sellerPage');
+  });
+});
 
 module.exports = router;

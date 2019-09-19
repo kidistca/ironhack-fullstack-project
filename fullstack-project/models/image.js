@@ -29,7 +29,8 @@ const imageSchema = new mongoose.Schema({
     trim: true
   },
   sellerId:{
-      type: mongoose.Schema.Types.ObjectId
+      type: mongoose.Schema.Types.ObjectId,
+      ref:"Seller"
     },
   sellerName: {
     type: String

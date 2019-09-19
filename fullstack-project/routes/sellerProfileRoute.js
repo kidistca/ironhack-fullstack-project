@@ -35,19 +35,17 @@ router.post('/seller-profile', (req, res, next) => {
 //--------------- Delete seller profile--------------------------------
 //--------------- Delete seller profile--------------------------------
 
+
 router.get('/seller-profile/delete', (req, res, next) => {
-    const sellerId = req.session.user._id;
-    Seller.findByIdAndDelete(sellerId)
-    .then(() => {
-        Image.findById(sellerId)
-    .then(() => {
-        req.session.destroy();
-          res.redirect('/');
-        });
-  });
+  const sellerId = req.session.user._id;
+  const p1 = Image.deleteMany({ sellerId });
+  const p2 = Seller.findByIdAndDelete(sellerId);
+  Promise.all([p1, p2])
+    .then((r1, r2) => {
+      req.session.destroy();
+      res.redirect('/');
+    });
 });
-
-
 
 
 

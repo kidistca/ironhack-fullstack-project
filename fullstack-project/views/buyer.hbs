@@ -27,8 +27,8 @@
      <h4><strong>Email:</strong> {{buyer.email}}</h4>
 </div>
 
-<div class="container p-2 m-10">
 
+<div class="container p-2 m-10">
 <form action="/buyer-profile" method="POST">
   <div class="form-group">
     <label for="name"><strong>Name</strong></label>
@@ -40,47 +40,10 @@
     <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{buyer.email}}">
   </div>
   <button class="btn btn-outline-primary btn-lg">Edit</button>
-  <button></button>
+  
  <a href="/buyer-profile/delete" class="btn btn-outline-danger btn-lg">Delete account</a>
 </form>
 </div>
 
- 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Delete
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="/buyer-profile" method="POST">
-  <div class="form-group">
-    <label for="name"><strong>Name</strong></label>
-    <input type="name" class="form-control" id="name" name="name" value="{{buyer.name}}">
-  </div>
 
-  <div class="form-group">
-    <label for="email"><strong>Email</strong></label>
-    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="{{buyer.email}}">
-  </div>
-  <button class="btn btn-outline-primary btn-lg">Edit</button>
-  <button></button>
- <a href="/buyer-profile/delete" class="btn btn-outline-danger btn-lg">Delete account</a>
-</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Yes</button>
-        <button type="button" class="btn btn-primary">No</button>
-      </div>
-    </div>
-  </div>
-</div>
