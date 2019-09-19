@@ -9,9 +9,11 @@ const Image = require('../models/image');
 const Seller = require('./../models/seller');
 const checkLogin = require('../controller/checkLogin');
 
-//--------------------Get all products -----------------------
+//---------------------Get product by category ----------------------------
+//---------------------Get product by category ----------------------------
+//---------------------Get product by category ----------------------------
 
-router.get('/product', checkLogin, (req, res, next) => {
+router.get('/product', (req, res, next) => {
   Image.find({})
     // .limit(20)
     // .sort({ createdAt: -1 })
@@ -25,10 +27,12 @@ router.get('/product', checkLogin, (req, res, next) => {
     .catch(error => next(error));
 });
 
+//----------------- 
 
 //-------------------Get a selected product and the seller information ----------------
 //-------------------Get a selected product and the seller information ----------------
 //-------------------Get a selected product and the seller information ----------------
+
 
 router.get('/product/:id', checkLogin, (req, res, next) => {
   const productId = req.params.id;
@@ -44,6 +48,50 @@ router.get('/product/:id', checkLogin, (req, res, next) => {
           });
 
         });
+    })
+    .catch(error => next(error));
+});
+
+//---------------------Filter product by category --------------------------------
+//---------------------Filter product by category --------------------------------
+//---------------------Filter product by category --------------------------------
+
+router.get("/products/ClothingCategory", (req, res, next) => {
+  Image.find({productcategory: "Custom Clothing"})
+    .then(products => {
+      res.render('product', {
+        products
+      });
+    })
+    .catch(error => next(error));
+});
+
+router.get("/products/FoodCategory", (req, res, next) => {
+  Image.find({productcategory: "Food & Drink"})
+    .then(products => {
+      res.render('product', {
+        products
+      });
+    })
+    .catch(error => next(error));
+});
+
+router.get("/products/PaintingCategory", (req, res, next) => {
+  Image.find({productcategory: "Painting"})
+    .then(products => {
+      res.render('product', {
+        products
+      });
+    })
+    .catch(error => next(error));
+});
+
+router.get("/products/PotteryCategory", (req, res, next) => {
+  Image.find({productcategory: "Pottery"})
+    .then(products => {
+      res.render('product', {
+        products
+      });
     })
     .catch(error => next(error));
 });

@@ -22,7 +22,7 @@ router.get('/buyer-profile', checkLogin, (req, res, next) => {
 //----------------Edit buyer profile ------------------------------------
 //----------------Edit buyer profile ------------------------------------
 
-router.post('/buyer-profile', (req, res, next) => {
+router.post('/buyer-profile', checkLogin, (req, res, next) => {
     const BuyerId = req.session.user._id;
     const name = req.body.name;
     const email = req.body.email;

@@ -6,15 +6,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-    <form class="form-inline">
-      <input class="form-control " id="inputdefault" width="100px" height="50px" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-    </form>  
+    {{!-- <form class="form-inline">
+      <input class="form-control " id="inputdefault" name="search" width="100px" height="50px" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-info my-2 my-sm-0" type="submit" placeholder ="fhg">Search</button>
+    </form>   --}}
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto py-md-3">
        <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li> 
+       <li class="nav-item active">
+        <a class="nav-link" href="/product">Product <span class="sr-only">(current)</span></a>
       </li> 
       <li class="nav-item active">
         <a class="nav-link" href="/buyer-profile">Profile <span class="sr-only">(current)</span></a>
@@ -25,6 +28,16 @@
   </div>
 </nav>
 
+{{!-- <form action="/product/FoodCategory">
+  <button>Food & Drink</button>
+</form> --}}
+<div class="container text-center">
+  <br>
+ <a href="/products/ClothingCategory" class="btn btn-outline-dark buttoncategory">Custom Clothing</a> 
+ <a href="/products/FoodCategory" class="btn btn-outline-dark buttoncategory">Food & Drink</a> 
+ <a href="/products/PaintingCategory" class="btn btn-outline-dark buttoncategory">Painting</a> 
+ <a href="/products/PotteryCategory" class="btn btn-outline-dark buttoncategory">Pottery</a> 
+</div>   
 
   <div class="container pt-5">
   <div class="row">
@@ -45,3 +58,4 @@
 {{/each}}
 </div>
 </div>
+
