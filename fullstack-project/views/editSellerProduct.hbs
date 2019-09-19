@@ -3,7 +3,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto py-md-3">
       <li class="nav-item active">
@@ -19,9 +18,8 @@
 </nav>
 
 
-{{!-- <img src="{{product.resizedUrl}} " class="card-img-top" alt="{{product.description}}"> --}}
     
-<div class="card m-10 pt-3 mt-5 pb-3" style="width: 40rem;">
+<div class="card m-10 mt-5" style="width: 40rem;">
   <img src="{{product.resizedUrl}}" class="card-img-top" alt="{{product.description}}">
 </div>
 
@@ -31,9 +29,14 @@
 
 <div class="container">
   <form method="POST" action="/sellerPage/edit/{{product._id}}">
-     <div class="form-group">
-      <label for="title">Product Title</label>
-      <input id="title" class="form-control" name="title" value="{{product.title}}"></input>
+  <div class="form-group">
+    <label for="product-category">Product Category</label>
+    <select class="form-control" id="product-category" name="productcategory" value="{{product.productcategory}}">
+      <option>Custom Clothing</option>
+      <option>Food & Drink</option>
+      <option>Painting</option>
+      <option>Pottery</option> 
+      </select>
       </div>
      <div class="form-group">
       <label for="upload-description">Description</label>
@@ -43,6 +46,10 @@
       <label for="price">Price</label>
       <input id="price" required class="form-control" type="text" name="price" value="{{product.price}}"  placeholder="price">
      </div>
+     <div class="form-group">
+      <label for="delivery">Expected delivery</label>
+      <input id="delivery" class="form-control" required type="delivery" name="delivery" value="{{product.delivery}}">
+    </div>
      <div class="form-group">
     <button class="btn btn-outline-secondary btn-lg form-control">Edit Product</button>
     </div>

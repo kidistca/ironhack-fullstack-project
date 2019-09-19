@@ -11,7 +11,7 @@
       </li> 
       <li class="nav-item active">
         <a class="nav-link" href="/seller-profile">Profile <span class="sr-only">(current)</span></a>
-      </li>  --}}
+      </li>  
         <form action="/" method="POST">
         <button class="btn btn-dark">Sign out</button></form> 
     </ul>
@@ -27,9 +27,9 @@
     <div class="form-group">
     <label for="product-category">Product Category</label>
     <select class="form-control" id="product-category" name="productcategory" placeholder="Product Category">
-      <option>Custom Clothings</option>
-      <option>Food & Drinks</option>
-      <option>Paintings</option>
+      <option>Custom Clothing</option>
+      <option>Food & Drink</option>
+      <option>Painting</option>
       <option>Pottery</option> 
       </select>
       </div>
@@ -61,14 +61,13 @@
 <div class="card text-center" style="width: 18rem;">
   <img src="{{this.resizedUrl}} " class="card-img-top" alt="{{this.description}}">
   <div class="card-body">
-      <h5 class="card-title">{{this.productcategory}}</h5> 
+      <h5 class="card-title"> <strong>{{this.productcategory}}</strong></h5> 
       <p class="card-text">{{this.description}}</p> 
-      <p class="card-text">By: {{this.sellerName}}</p> 
-      <p>€ {{this.price}}</p>
+      <p class="card-text"><strong>Artisan: </strong>{{this.sellerName}}</p> 
+      <p class="card-text">€ {{this.price}}</p>
       <a href="/sellerPage/edit/{{this._id}}" class="btn btn-outline-primary">Edit</a>
       <a href="/sellerPage/delete/{{this._id}}" class="btn btn-outline-danger">Delete</a>
   </div>
 </div>
-</form>
 {{/each}}
 </div>

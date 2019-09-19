@@ -45,6 +45,44 @@ router.get('/sellerPage', checkBuyerLogin, (req, res, next) => {
       .catch(error => next(error));
     });
 
+
+  
+//---------------------Seller Page - Edit product detail --------------------------
+//---------------------Seller Page - Edit product detail --------------------------
+
+  router.get('/sellerPage/edit/:_id', (req, res) => {
+    const sellerId = req.params._id;
+    Image.findById(sellerId)
+    .then(product => {
+        const data ={
+            product
+        };
+      console.log(data);
+    res.render('editSellerProduct', data);
+    
+  });
+  });
+
+  router.post('/sellerPage/edit/:_id', (req, res) => {
+    const productId = req.params._id;
+    const productcategory = req.body.productcategory;
+    const description = req.body.description;
+    const price = req.body.price;
+    const delivery = req.body.delivery;
+
+    Image.findByIdAndUpdate(productId,{ 
+      productcategory,
+      description,
+      price,
+      delivery
+     })
+    .then(data => {
+      res.redirect('/sellerPage');
+    });
+  });
+
+
+
   //---------------------Seller Page - Delete product --------------------------
   //---------------------Seller Page - Delete product --------------------------
 
@@ -56,41 +94,5 @@ router.get('/sellerPage', checkBuyerLogin, (req, res, next) => {
     
   });
 });
-
-
-  
-//---------------------Seller Page - product detail --------------------------
-//---------------------Seller Page - product detail --------------------------
-
-  router.get('/sellerPage/edit/:_id', (req, res) => {
-    const sellerId = req.params._id;
-    Image.findById(sellerId)
-    .then(product => {
-        const data ={
-            product
-        };
-      console.log(data);
-    res.render('edit-product', data);
-    
-  });
-  });
-
-  router.post('/sellerPage/edit/:_id', (req, res) => {
-    const productId = req.params._id;
-    const title = req.body.title;
-    const price = req.body.price;
-    const description = req.body.description;
-
-    Image.findByIdAndUpdate(productId,{ 
-      title: title, 
-      price: price,
-      description: description
-     } )
-    .then(data => {
-      res.redirect('/sellerPage');
-    });
-  });
-
-  
 
 module.exports = router;
