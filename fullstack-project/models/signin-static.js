@@ -12,7 +12,7 @@ module.exports = function(email, password) {
     .then(user => {
       if (!user) {
         console.error('USER_NOT_FOUND');
-        throw new Error('WRONG_EMAIL_OR_PASSWORD');
+        throw new Error('Invalid_Email_or_Password');
       } else {
         auxiliaryUser = user;
         return bcrypt.compare(password, user.passwordHash);
@@ -21,7 +21,7 @@ module.exports = function(email, password) {
     .then(matches => {
       if (!matches) {
         console.error('PASSWORD_DOESNT_MATCH');
-        throw new Error('WRONG_EMAIL_OR_PASSWORD');
+        throw new Error('Invalid_Email_or_Password');
       } else {
         return Promise.resolve(auxiliaryUser);
       }

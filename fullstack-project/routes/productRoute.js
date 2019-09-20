@@ -56,8 +56,8 @@ router.get('/product/:id', checkLogin, (req, res, next) => {
 //---------------------Filter product by category --------------------------------
 //---------------------Filter product by category --------------------------------
 
-router.get("/products/ClothingCategory", (req, res, next) => {
-  Image.find({productcategory: "Custom Clothing"})
+router.get("/products/CustomCategory", (req, res, next) => {
+  Image.find({productcategory: "Custom"})
     .then(products => {
       res.render('product', {
         products
