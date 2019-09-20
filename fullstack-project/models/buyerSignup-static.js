@@ -24,7 +24,7 @@ module.exports = function({name, email, passwordHash}) {
             return Promise.resolve(user);
         })
         .catch(error => {
-            console.log(error);
-            return Promise.reject(new Error('There was an error in the sign up process.'));
+            console.log('There was an error in the sign up process.', error);
+            return Promise.reject(error);
         });
 };

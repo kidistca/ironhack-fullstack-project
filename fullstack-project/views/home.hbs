@@ -6,22 +6,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  {{!-- <form class="form-inline my-4 my-lg-12 ">
-      <input class="form-control mr-sm-2" width="50px" height="50px" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-    </form> --}}
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto py-md-3">
-        {{!-- mr-auto --}}
      {{#if user}}
         <form action="/" method="POST">
         <button class="btn btn-dark">Buyer sign out</button>
         </form> 
       {{else}}
-      {{!-- <li class="nav-item active">
-        <a class="nav-link" href="/">Buyer sign out <span class="sr-only">(current)</span></a>
-      </li> --}}
-      {{!-- <li class="nav-item active"> --}}
         <li class="nav-item active">
         <a class="nav-link" href="/product">Products <span class="sr-only">(current)</span></a>
       </li>
@@ -50,7 +41,7 @@
       <img class="d-block w-100" src="/images/breads2.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="/images/soap3.jpg" alt="Third slide">
+      <img class="d-block w-100" src="/images/ceramics1.4.jpg" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -63,12 +54,7 @@
   </a>
 </div> 
 
-{{!-- <div>
-  
-<img src="/images/breads.jpg" width="500px" height="700px" class="rounded float-left img-fluid" alt="...">
-<img src="/images/jewelry.jpg" width="500px" height="700px" class="rounded float-left img-fluid" alt="...">
-<img src="/images/bags.jpg" width="400px" height="400px" class="rounded float-left" alt="...">
-</div> --}}
+
 
 
 <!-- services section -->
@@ -82,7 +68,6 @@
             </span>
             <h5 class="font-weight-bold text-uppercase">A one-of-a-kind community</h5>
             <p class="text-muted text-capitalize">
-              {{!-- We are an online marketplace, where people come together to make, sell, buy, and collect unique items. --}}
               Platform for artisan
             </p>
           </div>
@@ -97,18 +82,7 @@
               We love art
             </p>
           </div>
-          <!-- end of single service -->
-          {{!-- <!-- single service -->
-          <div class="col-10 mx-auto col-md-6 col-lg-4 my-3">
-            <span class="service-icon">
-              <i class="fas fa-dollar-sign"></i>
-            </span>
-            <h5 class="font-weight-bold text-uppercase">Art</h5>
-            <p class="text-muted text-capitalize">
-              Art is universal
-            </p>
-          </div>
-          <!-- end of single service --> --}}
+      
         </div>
       </div>
     </section>
@@ -117,22 +91,6 @@
 
 <!--Carousel Wrapper-->
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-  {{!-- <!--Controls-->
-  <div class="controls-top">
-    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-        class="fas fa-chevron-right"></i></a>
-  </div>
-  <!--/.Controls-->
-
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
-    <li data-target="#multi-item-example" data-slide-to="2"></li>
-  </ol>
-  <!--/.Indicators--> --}}
 
   <!--Slides-->
 
@@ -201,34 +159,12 @@
 <!--Carousel Wrapper-->
 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-  {{!-- <!--Controls-->
-  <div class="controls-top">
-    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-        class="fas fa-chevron-right"></i></a>
-  </div>
-  <!--/.Controls-->
-
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
-    <li data-target="#multi-item-example" data-slide-to="2"></li>
-  </ol>
-  <!--/.Indicators--> --}}
-
   <!--Slides-->
-
-  
-
   <div class="carousel-inner" role="listbox">
-
     <!--First slide-->
     <div class="carousel-item active">
       <ul class="list-group list-group-horizontal">
         
-      
-
       <div class="col-md-4">
         <div class="card mb-2">
           <img class="card-img-top"
@@ -238,7 +174,6 @@
             <h4 class="card-title">Tea Crockery Set</h4>
             <p class="card-text"><strong>Pottery</strong>  </p>
 
-            {{!-- <a class="btn btn-primary text-white">Button</a> --}}
           </div>
         </div>
       </div>
@@ -252,7 +187,6 @@
             <h4 class="card-title">Famous Paint of Portugal</h4>
             <p class="card-text"><strong>Painting</strong>  </p>
 
-            {{!-- <a class="btn btn-primary text-white">Button</a> --}}
           </div>
         </div>
       </div>
@@ -266,11 +200,9 @@
             <h4 class="card-title">Custard Tart</h4>
             <p class="card-text"><strong>Food & Drink</strong>  </p>
 
-            {{!-- <a class="btn btn-primary text-white">Button</a> --}}
           </div>
         </div>
       </div>
-
       </ul>
     </div>
     <!--/.First slide-->
@@ -310,17 +242,12 @@
                 </span>
                 Art & Creation
               </div>
-              <!-- end of single contact -->
-              <!-- single contact -->
               <div class="text-capitalize">
                 <span class="footer-icon mr-5 pr-5">
                   <i class="fas fa-phone"></i>
                 </span>
                 Phone Support : + (351) 111 2222
               </div>
-              <!-- end of single contact -->
-              <!-- single contact -->
-              {{!-- <div class="text-capitalize"> --}}
                 <span class="footer-icon mr-2 ml-5">
                   <i class="fas fa-envelope"></i>
                 </span>
@@ -332,8 +259,7 @@
         </div>
       </div>
 
-       <!-- Copyright -->
+      
   <div class="footer-copyright text-center py-3">© 2019 Artisan
   </div>
-  <!-- Copyright -->
     </footer>

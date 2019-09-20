@@ -26,13 +26,20 @@ router.post('/orderSuccessful/:id', (req, res, next) => {
         
                     const to = buyerEmail;
                     const subject = 'Order';
-                    const message = `Hi ${buyerName}, ${image.sellerId.name} have received your order.
-                                    Below is pickup and contact information. 
-                                    ${image.sellerId.postalcode} 
-                                    ${image.sellerId.city} 
-                                    ${image.sellerId.country} 
-                                    ${image.sellerId.email} 
-                                    ${image.sellerId.phone}`;
+                    const message = `<p>Hi ${buyerName}, ${image.sellerId.name} has received your order.
+                                    </br>
+                                    </br>
+                                    </br>
+                                    </br> 
+                                    <p>Below is seller information.</p>
+                                    </br>
+                                    </br>
+                                    <p>Seller name: ${image.sellerId.name} </p>
+                                    <p>Pickup location: ${image.sellerId.postalcode}, ${image.sellerId.city}, ${image.sellerId.country}</p>
+                                    <p>Email address: ${image.sellerId.email}</p>
+                                    <p>Phone number: ${image.sellerId.phonenumber}</p>
+                                    <p>Thank you!</p>
+                                    `;
                     transporter.sendMail({
                             from: '"From Artisan!" <localsartisan@gmail.com>',
                             to,

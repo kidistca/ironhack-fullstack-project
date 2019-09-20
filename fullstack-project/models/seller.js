@@ -17,7 +17,7 @@ const sellerSchema = new mongoose.Schema({
     required: true
   },
   postalcode: {
-    type: Number,
+    type: String,
     required: true
   },
   country: {
@@ -25,7 +25,7 @@ const sellerSchema = new mongoose.Schema({
     required: true
   },
   phonenumber: {
-    type: Number
+    type: String
   },
   passwordHash: {
     type: String,

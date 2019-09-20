@@ -30,7 +30,8 @@ router.post('/signup', (req, res, next) => {
       res.render('authentication/usersignin');
     })
     .catch(error => {
-      console.log(error);
+      // console.log(error);
+      res.render('authentication/usersignup', {error });
     });
 });
 
@@ -85,7 +86,8 @@ router.post('/sellersignup', (req, res, next) => {
       res.render('authentication/sellersignin');
     })
     .catch(error => {
-      console.log(error);
+      // console.log(error);
+      res.render('authentication/sellersignup', { error });
     });
 });
 
@@ -114,7 +116,7 @@ router.post('/sellersignin', (req, res, next) => {
     });
 });
 
-//------Logout - destroy session ----no access to session -----
+//---------Logout - destroy session ----no access to session -----
 
 
 router.post('/', (req, res, next) => {

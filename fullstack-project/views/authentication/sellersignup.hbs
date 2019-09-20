@@ -26,6 +26,9 @@
         <br>
             <label for="email">Email</label>
             <input type="email" name="email" required placeholder="Email">
+            {{#if error}}
+            <span>{{this.error}}</span>
+            {{/if}}
         <br>
          <br>
             <label for="city">City</label>
